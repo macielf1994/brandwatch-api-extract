@@ -93,6 +93,8 @@ https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Runtime.htm
 
     lambda_handler.handler
 
-Mais propriedades da Function podem ser encontradas aqui na documentação do módulo **aws_lambda**: [Function](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Function.html)
+Ficando dessa forama:
 
 ![](src/object-function.png)
+
+Mais propriedades da Function podem ser encontradas aqui na documentação do módulo **aws_lambda**: [Function](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Function.html)
