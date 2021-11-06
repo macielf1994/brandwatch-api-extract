@@ -160,6 +160,6 @@ No console do CloudFormation podemos então olhar a Stack de recursos que criamo
 Em seguida, testando a função Lambda podemos ver que os dados de menções foram carregados na camada de landing zone do Data Lake no S3:
 
 ![](src/log-lambda.png)
-![](src/json-objects.png)
+![](src/json-objects-s3.png)
 
 Link do módulo que faz as requisições pra API: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
