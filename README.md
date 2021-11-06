@@ -93,7 +93,11 @@ https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Runtime.htm
 
     lambda_handler.handler
 
-Ficando dessa forama:
+- inicial_policy: Aqui declaramos as politicas inicias da função, passando como argumento um array de políticas que vai pode fazer inserção de objetos no S3 com a ação s3:PutObject e uma lista de ARNs (Amazon Recurse Names) do S3 com o nome do Bucket e acesso recursivo em todas as pastas do Bucket. Dessa forma:
+
+    [bw_iam.PolicyStatement(actions = "s3:PutObject", ['arn:aws:s3:::data-lake-brandtest/*'])]
+
+No final o objeto instanciado na lambda_bw_api ficará dessa forma:
 
 ![](src/object-function.png)
 
@@ -101,7 +105,7 @@ Mais propriedades da Function podem ser encontradas aqui na documentação do m�
 
 ## Provisionando um Bucket S3 para Data Lake
 
-Também iremos criar um Bucket S3 que terá uma camada de ingest para a ingestão dos dados brutos da API.
+Também iremos criar um Bucket S3 que terá uma camada de landing zone para a ingestão dos dados brutos da API.
 
 Precisaremos importar o módulo **aws_s3** usando a classe **Bucket** que atribuiremos a variável **bucket_data_lake** usaremos os seguintes parametros:
 
@@ -110,6 +114,8 @@ Precisaremos importar o módulo **aws_s3** usando a classe **Bucket** que atribu
 - bucket_name: onde passaremos uma string com o nome do bucket: brandwatch-mentions-test;
 
 - block_public_access: vamos usar o objeto BlockPublicAccess restringindo o acesso público usando o parametro restrict_public_buckets como True;
+
+Ficando dessa forma:
 
 ![](src/object-bucket.png)
 
@@ -121,9 +127,24 @@ cdk synth
 
 E teremos a saída de um arquivo YAML que faremos o deploy para a CloudFormation 
 
-Imagem de parte do arquivo:
+Imagem de parte do arquivo para exemplo:
+
+![](src/yaml-cdk.png)
 
 Para fazer o deploy, temos que ter um perfil de usuário configurado com as credenciais utilizando **AWS CLI** e exportar o perfil de usuário para a variável de ambiente **AWS_PROFILE** como na imagem:
 
 ![](src/export-profile.png)
 
+Em seguida, para isolarmos o que é recurso para CloudFormation do que não faz parte do CloudFormation - por exemplo o módulo das requisições para a API - precisaremos executar o comando comando:
+
+```
+cdk bootstrap
+```
+
+![](src/cdk-bootstrap.png)
+
+```
+cdk deploy
+```
+
+![](src/cdk-deploy.png)

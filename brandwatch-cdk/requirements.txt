@@ -1,3 +1,6 @@
 -e .
 aws_cdk.aws_lambda
 aws_cdk.aws_s3
+requests
+python-dotenv
+boto3
