@@ -195,4 +195,4 @@ E isso irá desfazer toda a Stack de recursos que provisionamos na AWS.
 ![](src/cdk-destroy.png)
 
 
-Por fim, o código do modulo que é executado para fazer as requisões para a API de Brandwatch está nesse link: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
+Por fim, o código do modulo que é executado pela Lambda para fazer as requisões para a API de Brandwatch está nesse link: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
