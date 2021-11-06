@@ -22,7 +22,10 @@ Utilizaremos o AWS CLI para gerenciar os serviços da AWS por linha de comando.
 
 A instalação do pode ser feita seguindo a documentação da AWS: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-**AWS CDK**
+**AWS CDK + CloudFormation**
+
+<img src="src/cdk-logo.png" width="20%">
+<img src="src/cloud-formation.png" width="7%">
 
 O AWS CDK é um framework que utiliza linguagem de programação para definir os recursos na nuvem que queremos utilizar usando CloudFormation ou também Terraform. Visando torna os projetos mais dinâmicos a medida que é possível implementar lógica. A longo prazo conforme os projetos vão se tornando maiores, fica mais fácil dar manutenção, replicar modelos de infraestrutura e acelerar o ínicio de novos projetos.
 
@@ -31,6 +34,20 @@ Nesse projeto, utilizaremos o AWS CDK para provisionar o recurso de Lambda na AW
 Todo o processo de preparação do ambiente do CDK pode ser encontrado nessa documentação da AWS:
 
 [Get Started with AWS CDK](https://aws.amazon.com/getting-started/guides/setup-cdk/?nc1=h_ls)
+
+**AWS LAMBDA**
+
+<img src="src/lambda-logo.png" width="10%">
+
+A AWS Lambda é um serviço serveless (sem necessidade de provisionar servidores) com a vantagem de pagar somente pelo tempo que a função permeneceu rodando (no máximo 15 minutos) e os recursos utilizados para otimizar o desempenho.
+
+Utilizaremos a AWS Lambda para executar nosso módulo que faz as requisições para a API de Brandwatch usando a biblioteca requests do Python.
+
+**AWS S3**
+
+<img src="src/s3-logo.png" width="10%">
+
+AWS S3 é um serviço de armazenamento de objetos divido em buckets. Onde será dada a carga dos dados que vem da API na camada de Landing Zone do nosso Data Lake.
 
 ## Iniciando o projeto de CDK
 
