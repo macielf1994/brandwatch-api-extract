@@ -183,4 +183,15 @@ Em seguida, testando a função Lambda podemos ver que os dados de menções for
 ![](src/log-lambda.png)
 ![](src/json-objects-s3.png)
 
+Por final, esses dados é utilizado em um projeto real que faz as extrações pela ferramenta Pentaho. 
+A extração foi feita para fins de aprendizado e está utilizando dados reais e estratégicos de négocio, então podemos desfazer todo o projeto utilizando o comando:
+
+```
+cdk destroy
+```
+
+![](src/cdk-destroy.png)
+
+Irá desfazer a Stack de recursos que provisionamos na AWS.
+
 Código do modulo que é executado para fazer as requisões a API: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
