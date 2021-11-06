@@ -16,9 +16,10 @@ class BrandwatchCdkStack(cdk.Stack):
             timeout = cdk.Duration.minutes(amount=15),
             handler = "lambda_handler.handler",
             initial_policy = [bw_iam.PolicyStatement(
-                actions = "s3:PutObject",
+                actions = ["s3:PutObject"],
                 resources = ['arn:aws:s3:::data-lake-brandtest/*']
-            )]
+            )],
+            memory_size = 512
         )
 
         bucket_data_lake = s3_data_lake.Bucket(

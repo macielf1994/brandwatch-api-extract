@@ -93,9 +93,11 @@ https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Runtime.htm
 
     lambda_handler.handler
 
-- inicial_policy: Aqui declaramos as politicas inicias da função, passando como argumento um array de políticas que vai pode fazer inserção de objetos no S3 com a ação s3:PutObject e uma lista de ARNs (Amazon Recurse Names) do S3 com o nome do Bucket e acesso recursivo em todas as pastas do Bucket. Dessa forma:
+- inicial_policy: Aqui declaramos as politicas inicias da função, passando como argumento um array de políticas que vai pode fazer inserção de objetos no S3 com uma lista de ações, no caso aqui somente a s3:PutObject e uma lista de ARNs (Amazon Recurse Names) do S3 com o nome do Bucket e acesso recursivo em todas as pastas do Bucket. Dessa forma:
 
     [bw_iam.PolicyStatement(actions = "s3:PutObject", ['arn:aws:s3:::data-lake-brandtest/*'])]
+
+- memory_size: iremos atribuir 512, pois somente 128 a função acaba incorrendo em timeout por conta da quantidade de dados.
 
 No final o objeto instanciado na lambda_bw_api ficará dessa forma:
 
@@ -150,3 +152,12 @@ cdk deploy
 ```
 
 ![](src/cdk-deploy.png)
+
+No console do CloudFormation podemos então olhar a Stack de recursos que criamos e ver todos os recursos provisionados com o AWS CDK:
+
+![](src/cloud-formation-resources.png)
+
+Em seguida, testando a função Lambda podemos ver que os dados de menções foram carregados na camada de landing zone do Data Lake no S3:
+
+Link do código que faz as requisições pra API:
+
