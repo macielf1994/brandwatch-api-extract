@@ -18,6 +18,8 @@ Nesse projeto utilizaremos a API do Brandwatch para extrair dados de menções s
 
 **AWS CLI**
 
+<img src="src/aws-cli.png" width="12%">
+
 Utilizaremos o AWS CLI para gerenciar os serviços da AWS por linha de comando.
 
 A instalação do pode ser feita seguindo a documentação da AWS: [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
