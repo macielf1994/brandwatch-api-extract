@@ -24,8 +24,10 @@ A instalação do pode ser feita seguindo a documentação da AWS: [AWS CLI](htt
 
 **AWS CDK + CloudFormation**
 
+<p float="left">
 <img src="src/cdk-logo.png" width="20%">
 <img src="src/cloud-formation.png" width="7%">
+</p>
 
 O AWS CDK é um framework que utiliza linguagem de programação para definir os recursos na nuvem que queremos utilizar usando CloudFormation ou também Terraform. Visando torna os projetos mais dinâmicos a medida que é possível implementar lógica. A longo prazo conforme os projetos vão se tornando maiores, fica mais fácil dar manutenção, replicar modelos de infraestrutura e acelerar o ínicio de novos projetos.
 
