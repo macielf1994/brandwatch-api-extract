@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 
-def handler():
+def handler(event, context):
     date_today = datetime.today().strftime('%Y-%m-%d')
     load_dotenv()
     email_brandwatch = os.getenv("EMAIL_BRANDWATCH")
