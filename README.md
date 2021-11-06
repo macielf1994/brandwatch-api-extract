@@ -98,3 +98,17 @@ Ficando dessa forama:
 ![](src/object-function.png)
 
 Mais propriedades da Function podem ser encontradas aqui na documentação do módulo **aws_lambda**: [Function](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Function.html)
+
+## Provisionando um Bucket S3 para Data Lake
+
+Também iremos criar um Bucket S3 que terá uma camada de ingest para a ingestão dos dados brutos da API.
+
+Precisaremos importar o módulo **aws_s3** usando a classe **Bucket** que atribuiremos a variável **bucket_data_lake** usaremos os seguintes parametros:
+
+- scope, id: com as mesma finalidades da Function;
+
+- bucket_name: onde passaremos uma string com o nome do bucket: brandwatch-mentions-test;
+
+- block_public_access: vamos usar o objeto BlockPublicAccess restringindo o acesso público usando o parametro restrict_public_buckets como True;
+
+![](src/object-bucket.png)
