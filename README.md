@@ -1,6 +1,6 @@
 # Consumindo dados da API de Brandwatch com AWS Lambda
 
-![](src/brandwatch.png)
+![](src/brandwatch-logo.png)
 
 ## Introdução
 
