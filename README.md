@@ -81,7 +81,7 @@ https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Runtime.htm
 
 - code: recebe um objeto do tipo Code. Para isso criaremos uma pasta chamada code no nível do módulo **brandwatch_cdk_stack.py** e dentro da pasta teremos o código que faz as requisições para a API de Brandwatch guardando os objetos JSON das requisições no Data Lake. Dessa forma:
 
-    code = lambda_bw.Code.from_asset('brandwatch_cdk/code')
+    lambda_bw.Code.from_asset('brandwatch_cdk/code')
 
     Então tudo o que estiver dentro da pasta code vai ser usado para construção da Lambda.
 
