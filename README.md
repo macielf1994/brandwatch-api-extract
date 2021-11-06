@@ -112,3 +112,18 @@ Precisaremos importar o módulo **aws_s3** usando a classe **Bucket** que atribu
 - block_public_access: vamos usar o objeto BlockPublicAccess restringindo o acesso público usando o parametro restrict_public_buckets como True;
 
 ![](src/object-bucket.png)
+
+Feito isso, podemos executar o comando:
+
+```
+cdk synth
+```
+
+E teremos a saída de um arquivo YAML que faremos o deploy para a CloudFormation 
+
+Imagem de parte do arquivo:
+
+Para fazer o deploy, temos que ter um perfil de usuário configurado com as credenciais utilizando **AWS CLI** e exportar o perfil de usuário para a variável de ambiente **AWS_PROFILE** como na imagem:
+
+![](src/export-profile.png)
+

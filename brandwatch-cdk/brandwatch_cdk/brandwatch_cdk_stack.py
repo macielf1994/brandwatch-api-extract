@@ -22,5 +22,3 @@ class BrandwatchCdkStack(cdk.Stack):
             bucket_name = 'data-lake-brandtest',
             block_public_access = s3_data_lake.BlockPublicAccess(restrict_public_buckets = True)
         )
-
-        
