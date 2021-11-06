@@ -12,5 +12,6 @@ class BrandwatchCdkStack(cdk.Stack):
             id      = "BrandwatchAPIExtract",
             runtime = lambda_bw.Runtime.PYTHON_3_9,
             code    = lambda_bw.Code.from_asset('brandwatch_cdk/code'),
-            timeout = 900
+            timeout = cdk.Duration.minutes(amount=15),
+            handler = "lambda_handler.handler"
         )

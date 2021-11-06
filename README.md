@@ -60,28 +60,38 @@ Por final teremos essa estrutura do projeto:
 
 ![](src/structure-project-1.png)
 
-Então o CDK gerou um módulo **brandwatch_cdk_stack.py** que possuí a classe **BrandwatchCdkStack**. Quando instanciamos essa classe estamos construindo uma Stack de recursos com o CloudFormation. Stacks são conjuntos de recursos que decidimos provisionar através um template do CloudFormation que nesse caso está sendo construído através do CDK.
+Então o CDK gerou um módulo **brandwatch_cdk_stack.py** que possuí a classe **BrandwatchCdkStack**. Quando instanciamos essa classe estamos construindo uma Stack de recursos com o CloudFormation. Stacks são conjuntos de recursos que decidimos provisionar através um template do CloudFormation que nesse caso será construído através do CDK.
 
-Pra provisionarmos o recurso de Lambda Function, precisamos antes importar o pacote de aws_lambda do CDK. Iremos instalar o pacote passando **aws_cdk.aws_lambda** para o **requirements.txt** e dentro da virtualenv executar o comando:
+Pra provisionarmos o recurso de Lambda Function, precisamos antes importar o módulo de aws_lambda do CDK. Iremos instalar o módulo passando **aws_cdk.aws_lambda** para o **requirements.txt** e dentro da virtualenv executar o comando:
 
 ```
 python -m pip install -r requirements.txt
 ```
 
-Importando a biblioteca, iremos inserir no método **__init__** da classe **BrandwatchCdkStack** uma variavel **lambda_bw_api** que vai instanciar a classe **Function** do pacote **aws_lambda** passando os seguintes argumentos para os respectivos parametros:
+Importando o módulo, iremos inserir no método **__init__** da classe **BrandwatchCdkStack** uma variavel que daremos o nome de **lambda_bw_api** que vai instanciar a classe **Function** do módulo **aws_lambda** passando os seguintes argumentos para os respectivos parametros:
 
 - scope: parametro que recebe o Stack onde iremos fazer o deploy da Lambda Function, no caso a própria BrandwatchCdkStack, então passaremos como argumento somente: self;
 
 - id: recebe uma string com o nome que daremos para o recurso dentro do CloudFormation onde passaremos: BrandwatchAPIExtract;
 
-- runtime: passaremos o runtime do Python 3.8 que vem do pacote aws_lambda dessa forma: aws_cdk.aws_lambda.Runtime.PYTHON_3_8
+- runtime: passaremos o runtime do Python 3.8 que vem do módulo aws_lambda dessa forma: 
 
-    Como na documentação de Runtime do pacote aws_lambda: [Runtime](
+    lambda_bw.Runtime.PYTHON_3_9
+
+- timeout: recebe um objeto do tipo Duration. Usaremos o método minutes para definir o tempo máximo para timeout da função que será de 15 minutos - tempo máximo que uma Lambda pode rodar.
+
+    Como na documentação de Runtime do módulo aws_lambda: [Runtime](
 https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Runtime.html#aws_cdk.aws_lambda.Runtime);
 
-- code: recebe um objeto do tipo Code. Para isso criaremos uma pasta chamada code no nível do módulo **brandwatch_cdk_stack.py** e dentro da pasta teremos o código que faz as requisições para a API de Brandwatch guardando os objetos JSON das requisições no Data Lake. Dessa forma:
+- code: recebe um objeto do tipo Code onde vamos usar o método from_asset pra apontar a pasta onde está código da nossa função Lambda. Então criamos uma pasta code no nível do módulo **brandwatch_cdk_stack.py** e dentro da pasta teremos o modulo com o código que faz as requisições para a API de Brandwatch e guarda os objetos JSON das requisições no Data Lake. Passaremos dessa forma:
 
     lambda_bw.Code.from_asset('brandwatch_cdk/code')
 
     Então tudo o que estiver dentro da pasta code vai ser usado para construção da Lambda.
+
+- handler: passaremos o módulo **lambda_handler** que criamos e a função **handler** que será executada dessa forma:
+
+    lambda_handler.handler
+
+Mais propriedades da Function podem ser encontradas aqui na documentação do módulo **aws_lambda**: [Function](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_lambda/Function.html)
 
