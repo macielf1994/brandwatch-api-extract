@@ -183,4 +183,4 @@ Em seguida, testando a função Lambda podemos ver que os dados de menções for
 ![](src/log-lambda.png)
 ![](src/json-objects-s3.png)
 
-Link do módulo que faz as requisições pra API: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
+Código do modulo que é executado para fazer as requisões a API: [bw_requests.py](https://github.com/macielf1994/brandwatch-api-extract/blob/master/brandwatch-cdk/brandwatch_cdk/code/bw_requests.py)
