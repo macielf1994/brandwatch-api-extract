@@ -143,6 +143,8 @@ cdk bootstrap
 
 ![](src/cdk-bootstrap.png)
 
+Feito isso, para relizar o deploy da Lambda, executamos o comando:
+
 ```
 cdk deploy
 ```
